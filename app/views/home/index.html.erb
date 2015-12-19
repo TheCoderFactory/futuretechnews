@@ -1,0 +1,28 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<%= form_for @news_item do |f| %>
+	<%= f.label :url %>
+	<%= f.text_field :url %>
+	<br>
+	<%= f.submit %>
+<% end %>
+
+<div class="row">
+<div class="col m4">
+<% @news_items.each do |news_item| %>
+	<div class="card">
+	    <div class="card-image">
+	      <img src="<%= news_item.main_image %>">
+	      <span class="card-title"><%= news_item.title %></span>
+	    </div>
+	    <div class="card-content">
+	      <p><%= news_item.description %></p>
+	    </div>
+	    <div class="card-action">
+	      <a href="<%= news_item.url %>">This is a link</a>
+	    </div>
+	  </div>
+<% end %>
+</div>
+</div>
