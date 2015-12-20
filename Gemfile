@@ -7,6 +7,16 @@ gem 'link_thumbnailer', :git => 'https://github.com/gottfrois/link_thumbnailer',
 gem 'griddler', '~> 1.0.0'
 gem 'griddler-mailgun', '~> 1.0.1'
 gem 'acts-as-taggable-on'
+gem 'devise'
+gem 'simple_form'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-instagram'
+gem 'twitter'
+gem 'instagram'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client', require: 'google/api_client'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets

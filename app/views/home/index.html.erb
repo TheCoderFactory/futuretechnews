@@ -1,43 +1,54 @@
 <h1>FutureTechNews</h1>
 <p>The latest future tech from around the web.</p>
+<p><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit article</a></p>
+
 
 <div class="row">
-	<div class="col m6">
-		<div class="card">
-			<div class="card-content">
-				<%= form_for @news_item do |f| %>
-					<%= f.label :url %>
-					<%= f.text_field :url %>
-					<br>
-					<%= f.label :tag_list %>
-					<%= f.text_field :tag_list %>
-					<br>
-					<%= f.submit %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-<div class="col m8">
+<div class="col m12">
 <% @news_items.each do |news_item| %>
 	<div class="card-panel grey lighten-5 z-depth-1">
           <div class="row">
             <div class="col s4">
               <img src="<%= news_item.main_image %>" alt="" class="responsive-img"> <!-- notice the "circle" class -->
+            </div>
+            <div class="col s8">
+              <span class="card-title light-blue-text"><a href="<%= news_item.url %>"><%= image_tag news_item.favicon %> <%= news_item.title %></a></span>
+	      			<p><%= news_item.description %></p>
 	      			<p>
 	      				<% news_item.tags.each do |tag| %>
 	      					<div class="chip orange"><%= link_to '#' + tag.name, root_path(tag: tag.name), class: 'white-text' %></div>
 	      				<% end %>
 	      			</p>
-            </div>
-            <div class="col s8">
-              <span class="card-title light-blue-text"><a href="<%= news_item.url %>"><%= image_tag news_item.favicon %> <%= news_item.title %></a></span>
-	      			<p><%= news_item.description %></p>
+	      			<p>
+	      				<div class="chip">
+      				    <img src="" alt="Contact Person">
+      				    Jane Doe
+      				  </div>
+	      			</p>
             </div>
           </div>
         </div>
 <% end %>
 </div>
 </div>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Submit article</h4>
+    <%= form_for @news_item do |f| %>
+				<%= f.label :url %>
+				<%= f.text_field :url %>
+				<br>
+				<%= f.label :tag_list %>
+				<%= f.text_field :tag_list %>
+				<br>
+				<%= f.submit %>
+			<% end %>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>
