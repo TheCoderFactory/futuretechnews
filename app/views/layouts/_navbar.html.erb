@@ -3,7 +3,7 @@
       <a href="#!" class="brand-logo">FutureTechNews</a>
       <ul class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li><a href="#"><%= current_user.identities.first.name if current_user.identities %></a></li>
+          <li><a href="#"><%= current_user.identities.first.name if current_user.identities.any? %></a></li>
           <li><a class="modal-trigger" href="#modal1">Submit article</a></li>
           <li><%= link_to '<i class="material-icons">exit_to_app</i>'.html_safe, destroy_user_session_path, method: :delete %>
         <% else %>
