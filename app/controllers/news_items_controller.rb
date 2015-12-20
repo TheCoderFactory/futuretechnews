@@ -32,7 +32,7 @@ class NewsItemsController < ApplicationController
     @news_item.main_image = page.images.first.src.to_s
     respond_to do |format|
       if @news_item.save
-        format.html { redirect_to @news_item, notice: 'News item was successfully created.' }
+        format.html { redirect_to root_path, notice: 'News item was successfully created.' }
         format.json { render :show, status: :created, location: @news_item }
       else
         format.html { render :new }
@@ -73,6 +73,6 @@ class NewsItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_item_params
-      params.require(:news_item).permit(:title, :favicon, :description, :main_image, :url)
+      params.require(:news_item).permit(:tag_list, :title, :favicon, :description, :main_image, :url)
     end
 end

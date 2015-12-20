@@ -3,9 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-gem 'link_thumbnailer'
+gem 'link_thumbnailer', :git => 'https://github.com/gottfrois/link_thumbnailer', branch: 'tmp-video-info-fix'
 gem 'griddler', '~> 1.0.0'
 gem 'griddler-mailgun', '~> 1.0.1'
+gem 'acts-as-taggable-on'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -43,7 +44,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'quiet_assets'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
