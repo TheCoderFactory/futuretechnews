@@ -12,7 +12,7 @@
               <img src="<%= news_item.main_image %>" alt="" class="responsive-img"> <!-- notice the "circle" class -->
             </div>
             <div class="col s8">
-              <span class="card-title light-blue-text"><a href="<%= news_item.url %>"><%= image_tag news_item.favicon, width: '20px' %> <%= news_item.title %></a></span>
+              <h5 class="card-title light-blue-text"><a href="<%= news_item.url %>"><%= image_tag news_item.favicon, width: '20px' %> <%= news_item.title %></a></h5>
 	      			<p><%= news_item.description %></p>
 	      			<p>
 	      				<% news_item.tags.each do |tag| %>
