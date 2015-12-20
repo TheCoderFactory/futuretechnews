@@ -1,6 +1,6 @@
 <h1>FutureTechNews</h1>
-<p>The latest future tech from around the web.</p>
-<p><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit article</a></p>
+<p><span class="flow-text">The latest future tech from around the web.</span></p>
+
 
 
 <div class="row">
@@ -14,16 +14,18 @@
             <div class="col s8">
               <h5 class="card-title light-blue-text"><a href="<%= news_item.url %>"><%= image_tag news_item.favicon, width: '20px' %> <%= news_item.title %></a></h5>
 	      			<p><%= news_item.description %></p>
+	      			<% if news_item.user %>
+		      			<p>
+		      				<div class="chip">
+	      				    <img src="<%= news_item.user.identities.first.image %>" alt="<%= news_item.user.identities.first.name %>">
+	      				    <%= news_item.user.identities.first.name %>
+	      				  </div>
+		      			</p>
+		      		<% end %>
 	      			<p>
 	      				<% news_item.tags.each do |tag| %>
 	      					<div class="chip orange"><%= link_to '#' + tag.name, root_path(tag: tag.name), class: 'white-text' %></div>
 	      				<% end %>
-	      			</p>
-	      			<p>
-	      				<div class="chip">
-      				    <img src="" alt="Contact Person">
-      				    Jane Doe
-      				  </div>
 	      			</p>
             </div>
           </div>

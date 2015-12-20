@@ -30,6 +30,7 @@ class NewsItemsController < ApplicationController
     @news_item.favicon = page.favicon
     @news_item.description = page.description
     @news_item.main_image = page.images.first.src.to_s
+    @news_item.user = current_user
     respond_to do |format|
       if @news_item.save
         format.html { redirect_to root_path, notice: 'News item was successfully created.' }

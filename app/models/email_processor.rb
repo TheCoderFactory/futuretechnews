@@ -7,6 +7,9 @@ class EmailProcessor
   def process
     # all of your code to deal with the email goes here
     page = LinkThumbnailer.generate(@email.body)
-    NewsItem.create!(url: @email.body, title: page.title, favicon: page.favicon, description: page.description, main_image: page.images.first.src.to_s, tag_list: @email.subject)
+    user = User.find_by(email: @email.from)
+    if user
+    	NewsItem.create!(url: @email.body, title: page.title, favicon: page.favicon, description: page.description, main_image: page.images.first.src.to_s, tag_list: @email.subject, user_id: user.id)
+    end
   end
 end

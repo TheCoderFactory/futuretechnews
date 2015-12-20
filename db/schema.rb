@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220062707) do
+ActiveRecord::Schema.define(version: 20151220070519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,10 @@ ActiveRecord::Schema.define(version: 20151220062707) do
     t.text     "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "news_items", ["user_id"], name: "index_news_items_on_user_id", using: :btree
 
   create_table "news_sources", force: :cascade do |t|
     t.string   "name"
@@ -91,4 +94,5 @@ ActiveRecord::Schema.define(version: 20151220062707) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "identities", "users"
+  add_foreign_key "news_items", "users"
 end

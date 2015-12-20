@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :omniauthable
 
   has_many :identities
+  has_many :news_items
 
   def twitter
     identities.where( :provider => "twitter" ).first
